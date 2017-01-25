@@ -5,17 +5,19 @@ import java.sql.SQLException;
 class GetConnection{
 	public static void main(String[] args){
 		try{
+			//JDBCãƒ‰ãƒ©ã‚¤ãƒã®ã‚¯ãƒ©ã‚¹åã‚’å®Œå…¨é™å®šåã§æŒ‡å®šã—ã¦ãƒ­ãƒ¼ãƒ‰
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			//Oracle‚ÉÚ‘±‚·‚é
+			//Oracleã«æ¥ç¶šã™ã‚‹
 				Connection=
 			DriverManager.getConnection
 	 	 	 ("jdbc:oracle:thin:@localhost:1521:ip",	"scott","tiger");
-			System.out.println("Ú‘±Š®—¹");
+			System.out.println("æ¥ç¶šå®Œäº†");
 
-			//Oracle‚©‚çØ’f‚·‚é
+			//Oracleã‹ã‚‰åˆ‡æ–­ã™ã‚‹
 			cn.close();
-			System.out.println("Ø’fŠ®—¹");
+			System.out.println("åˆ‡æ–­å®Œäº†");
+				
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}catch(SQLException e){
