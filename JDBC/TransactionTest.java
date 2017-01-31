@@ -6,43 +6,44 @@ import java.sql.Statement;
 class TransactionTest{
 	public static void main(String[] args){
 		try{
-			//DriverƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚ğƒ[ƒh‚·‚é
+			//Driverã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			//ConnectionƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚Ì
-			//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·
+			//Connectionã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®
+			//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™
 			Connection cn=
 				DriverManager.getConnection(
 					"jdbc:oracle:thin:@localhost:1521:ip",
 					"scott","tiger");
 			
-			//©“®ƒRƒ~ƒbƒg‚ğOFF‚É‚·‚é
+			//è‡ªå‹•ã‚³ãƒŸãƒƒãƒˆã‚’OFFã«ã™ã‚‹
 			cn.setAutoCommit(false);
 			
-			System.out.println("Ú‘±Š®—¹");
+			System.out.println("æ¥ç¶šå®Œäº†");
 			
-			//SQL•¶‚ğ•Ï”‚ÉŠi”[‚·‚é
+			//SQLæ–‡ã‚’å¤‰æ•°ã«æ ¼ç´ã™ã‚‹
 			String sql="insert into emp(empno,ename) values(9001,'OHARAZAWA')"
 			
-			//StatementƒCƒ“ƒ^[ƒtƒFƒCƒX‚ğÀ‘•‚·‚éƒNƒ‰ƒX‚Ì
-			//ƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾‚·‚é
+			//Statementã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã‚¯ãƒ©ã‚¹ã®
+			//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã™ã‚‹
+			//ã‚³ãƒ¡ãƒ³ãƒˆã ã‚ˆï¼			
 			Statement st=cn.createStatement();
 			
-			//SQL‚ğÀs‚µƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ªŠJn‚³‚ê‚éBˆ—Œ”‚ª•Ô‚³‚ê‚é
+			//SQLã‚’å®Ÿè¡Œã—ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ãŒé–‹å§‹ã•ã‚Œã‚‹ã€‚å‡¦ç†ä»¶æ•°ãŒè¿”ã•ã‚Œã‚‹
 			int count=st.executeUpdate(sql);
 			
-			System.out.println(count+"Œˆ—Š®—¹");
+			System.out.println(count+"ä»¶å‡¦ç†å®Œäº†");
 			
-			//ƒgƒ‰ƒ“ƒUƒNƒVƒ‡ƒ“‚ğƒRƒ~ƒbƒg‚·‚é
+			//ãƒˆãƒ©ãƒ³ã‚¶ã‚¯ã‚·ãƒ§ãƒ³ã‚’ã‚³ãƒŸãƒƒãƒˆã™ã‚‹
 			cn.commit();
 			
-			//ƒXƒe[ƒgƒƒ“ƒg‚ğƒNƒ[ƒY‚·‚é
+			//ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã™ã‚‹
 			st.close();
 			
-			//RDBMS‚©‚çØ’f‚·‚é
+			//RDBMSã‹ã‚‰åˆ‡æ–­ã™ã‚‹
 			cn.close();
 			
-			System.out.println("Ø’fŠ®—¹");
+			System.out.println("åˆ‡æ–­å®Œäº†");
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}catch(SQLException e){
