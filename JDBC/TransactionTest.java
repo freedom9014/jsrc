@@ -26,7 +26,8 @@ class TransactionTest{
 			
 			//Statementインターフェイスを実装するクラスの
 			//インスタンスを取得する
-			//コメントだよ！			
+			//コメントだよ！
+			//上のコメント意味ないよ
 			Statement st=cn.createStatement();
 			
 			//SQLを実行しトランザクションが開始される。処理件数が返される
