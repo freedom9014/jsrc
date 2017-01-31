@@ -28,6 +28,7 @@ class TransactionTest{
 			//インスタンスを取得する
 			//コメントだよ！
 			//上のコメント意味ないよ
+			//スラッシュ消えて腹立たしい			
 			Statement st=cn.createStatement();
 			
 			//SQLを実行しトランザクションが開始される。処理件数が返される
