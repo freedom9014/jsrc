@@ -15,6 +15,7 @@ public class CallableStatementDemo {
 			String url = "jdbc:oracle:thin:@localhost:1521:ORCL";
 			Connection conn = DriverManager.getConnection(url,"scott", "tiger");
 			//ユーザー名はＳｃｏｔｔでパスワードはタイガー
+			//パスワードまちがえてびっくり
 
 			//�X�g�A�h�v���V�[�W���̖��O���w��
 			CallableStatement cstmt = conn.prepareCall("{call insert_emp()}");
