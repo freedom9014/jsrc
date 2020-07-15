@@ -8,25 +8,26 @@ import java.sql.SQLException;
 public class CallableStatementDemo {
 	public static void main(String[] args) {
 		try {
-			//JDBCƒhƒ‰ƒCƒo‚Ì“o˜^
+			//JDBCï¿½hï¿½ï¿½ï¿½Cï¿½oï¿½Ì“oï¿½^
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-			//ƒT[ƒo[Aƒ†[ƒU[‚Ìw’è
+
+			//ï¿½Tï¿½[ï¿½oï¿½[ï¿½Aï¿½ï¿½ï¿½[ï¿½Uï¿½[ï¿½Ìwï¿½ï¿½
 			String url = "jdbc:oracle:thin:@localhost:1521:ORCL";
 			Connection conn = DriverManager.getConnection(url,"scott", "tiger");
-						
-			//ƒXƒgƒAƒhƒvƒƒV[ƒWƒƒ‚Ì–¼‘O‚ğw’è
+			//ãƒ¦ãƒ¼ã‚¶ãƒ¼åã¯ï¼³ï½ƒï½ï½”ï½”ã§ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ã‚¿ã‚¤ã‚¬ãƒ¼
+
+			//ï¿½Xï¿½gï¿½Aï¿½hï¿½vï¿½ï¿½ï¿½Vï¿½[ï¿½Wï¿½ï¿½ï¿½Ì–ï¿½ï¿½Oï¿½ï¿½ï¿½wï¿½ï¿½
 			CallableStatement cstmt = conn.prepareCall("{call insert_emp()}");
-						
-			//ƒXƒgƒAƒhƒvƒƒOƒ‰ƒ€‚ğÀs
+
+			//ï¿½Xï¿½gï¿½Aï¿½hï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
 			cstmt.execute();
-			
-			//Ÿ‚ÍÀsŒ‹‰Ê‚ÌŠm”FB¡“x‚ÍAƒR[ƒ‹‚·‚éƒvƒƒOƒ‰ƒ€‚Å‚Í‚È‚­A
-			//select•¶‚È‚Ì‚Å‹Lq‚ªˆá‚¢‚Ü‚·B
+
+			//ï¿½ï¿½ï¿½Íï¿½ï¿½sï¿½ï¿½ï¿½Ê‚ÌŠmï¿½Fï¿½Bï¿½ï¿½ï¿½xï¿½ÍAï¿½Rï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Å‚Í‚È‚ï¿½ï¿½A
+			//selectï¿½ï¿½ï¿½È‚Ì‚Å‹Lï¿½qï¿½ï¿½ï¿½á‚¢ï¿½Ü‚ï¿½ï¿½B
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT *  FROM emp");
 			while (rs.next()) {
-				//‘S—ñæ‚èo‚µBˆê‚Â‚¾‚¯w’è•û–@‚ğ•Ï‚¦‚Ä‚¢‚Ü‚·B
+				//ï¿½Sï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Bï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½Ï‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 				int empno = rs.getInt(1);
 				String ename = rs.getString("ename");
 				String job = rs.getString(3);
@@ -40,7 +41,7 @@ public class CallableStatementDemo {
 					hiredate + " : " + sal + " : " + comm + " : " + deptno);
 			}
 			conn.commit();
-			
+
 			rs.close();
 			stmt.close();
 			conn.close();
